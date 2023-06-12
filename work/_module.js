@@ -1048,24 +1048,10 @@ function create_fragment(ctx) {
 	};
 }
 
-function instance($$self, $$props, $$invalidate) {
-	let { logo } = $$props;
-	let { site_nav } = $$props;
-	let { footer_links } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('logo' in $$props) $$invalidate(0, logo = $$props.logo);
-		if ('site_nav' in $$props) $$invalidate(1, site_nav = $$props.site_nav);
-		if ('footer_links' in $$props) $$invalidate(2, footer_links = $$props.footer_links);
-	};
-
-	return [logo, site_nav, footer_links];
-}
-
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { logo: 0, site_nav: 1, footer_links: 2 });
+		init(this, options, null, create_fragment, safe_not_equal, {});
 	}
 }
 
@@ -2846,7 +2832,7 @@ function create_fragment$1(ctx) {
 	};
 }
 
-function instance$1($$self, $$props, $$invalidate) {
+function instance($$self, $$props, $$invalidate) {
 	const state = {
 		// Last icon name
 		name: '',
@@ -2926,7 +2912,7 @@ function instance$1($$self, $$props, $$invalidate) {
 class Component$1 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
+		init(this, options, instance, create_fragment$1, safe_not_equal, {});
 	}
 }
 
@@ -2934,17 +2920,17 @@ class Component$1 extends SvelteComponent {
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[7] = list[i].link;
+	child_ctx[6] = list[i].link;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[7] = list[i].link;
+	child_ctx[6] = list[i].link;
 	return child_ctx;
 }
 
-// (106:31) 
+// (105:31) 
 function create_if_block_4(ctx) {
 	let img;
 	let img_src_value;
@@ -2981,7 +2967,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (104:6) {#if logo.title}
+// (103:6) {#if logo.title}
 function create_if_block_3(ctx) {
 	let t_value = /*logo*/ ctx[0].title + "";
 	let t;
@@ -3005,10 +2991,10 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (111:6) {#each site_nav as { link }}
+// (110:6) {#each site_nav as { link }}
 function create_each_block_1(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[7].label + "";
+	let t_value = /*link*/ ctx[6].label + "";
 	let t;
 	let a_href_value;
 
@@ -3027,16 +3013,16 @@ function create_each_block_1(ctx) {
 		},
 		h() {
 			attr(a, "class", "link svelte-sip8mq");
-			attr(a, "href", a_href_value = /*link*/ ctx[7].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[6].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[7].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[6].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[7].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[6].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3046,7 +3032,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (120:31) 
+// (119:31) 
 function create_if_block_2(ctx) {
 	let img;
 	let img_src_value;
@@ -3083,7 +3069,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (118:6) {#if logo.title}
+// (117:6) {#if logo.title}
 function create_if_block_1$1(ctx) {
 	let t_value = /*logo*/ ctx[0].title + "";
 	let t;
@@ -3107,7 +3093,7 @@ function create_if_block_1$1(ctx) {
 	};
 }
 
-// (130:4) {#if mobileNavOpen}
+// (129:4) {#if mobileNavOpen}
 function create_if_block$1(ctx) {
 	let nav;
 	let t;
@@ -3183,7 +3169,7 @@ function create_if_block$1(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler_1*/ ctx[5]);
+				dispose = listen(button, "click", /*click_handler_1*/ ctx[4]);
 				mounted = true;
 			}
 		},
@@ -3240,10 +3226,10 @@ function create_if_block$1(ctx) {
 	};
 }
 
-// (132:8) {#each site_nav as { link }}
+// (131:8) {#each site_nav as { link }}
 function create_each_block(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[7].label + "";
+	let t_value = /*link*/ ctx[6].label + "";
 	let t;
 	let a_href_value;
 
@@ -3262,16 +3248,16 @@ function create_each_block(ctx) {
 		},
 		h() {
 			attr(a, "class", "mobile-link");
-			attr(a, "href", a_href_value = /*link*/ ctx[7].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[6].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[7].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[6].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[7].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[6].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3440,7 +3426,7 @@ function create_fragment$2(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler*/ ctx[4]);
+				dispose = listen(button, "click", /*click_handler*/ ctx[3]);
 				mounted = true;
 			}
 		},
@@ -3547,10 +3533,9 @@ function create_fragment$2(ctx) {
 	};
 }
 
-function instance$2($$self, $$props, $$invalidate) {
+function instance$1($$self, $$props, $$invalidate) {
 	let { logo } = $$props;
 	let { site_nav } = $$props;
-	let { footer_links } = $$props;
 	let mobileNavOpen = false;
 
 	const click_handler = () => $$invalidate(2, mobileNavOpen = true);
@@ -3559,16 +3544,15 @@ function instance$2($$self, $$props, $$invalidate) {
 	$$self.$$set = $$props => {
 		if ('logo' in $$props) $$invalidate(0, logo = $$props.logo);
 		if ('site_nav' in $$props) $$invalidate(1, site_nav = $$props.site_nav);
-		if ('footer_links' in $$props) $$invalidate(3, footer_links = $$props.footer_links);
 	};
 
-	return [logo, site_nav, mobileNavOpen, footer_links, click_handler, click_handler_1];
+	return [logo, site_nav, mobileNavOpen, click_handler, click_handler_1];
 }
 
 class Component$2 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$2, create_fragment$2, safe_not_equal, { logo: 0, site_nav: 1, footer_links: 3 });
+		init(this, options, instance$1, create_fragment$2, safe_not_equal, { logo: 0, site_nav: 1 });
 	}
 }
 
@@ -3576,11 +3560,11 @@ class Component$2 extends SvelteComponent {
 
 function get_each_context$1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[4] = list[i];
+	child_ctx[1] = list[i];
 	return child_ctx;
 }
 
-// (50:8) {#if item.image.url}
+// (47:8) {#if item.image.url}
 function create_if_block$2(ctx) {
 	let img;
 	let img_src_value;
@@ -3596,19 +3580,19 @@ function create_if_block$2(ctx) {
 			this.h();
 		},
 		h() {
-			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[4].image.url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*item*/ ctx[4].image.alt);
+			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[1].image.url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*item*/ ctx[1].image.alt);
 			attr(img, "class", "svelte-hirc2c");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[4].image.url)) {
+			if (dirty & /*items*/ 1 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[1].image.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty & /*items*/ 1 && img_alt_value !== (img_alt_value = /*item*/ ctx[4].image.alt)) {
+			if (dirty & /*items*/ 1 && img_alt_value !== (img_alt_value = /*item*/ ctx[1].image.alt)) {
 				attr(img, "alt", img_alt_value);
 			}
 		},
@@ -3618,19 +3602,19 @@ function create_if_block$2(ctx) {
 	};
 }
 
-// (48:4) {#each items as item}
+// (45:4) {#each items as item}
 function create_each_block$1(ctx) {
 	let div2;
 	let t0;
 	let div1;
 	let h2;
-	let t1_value = /*item*/ ctx[4].title + "";
+	let t1_value = /*item*/ ctx[1].title + "";
 	let t1;
 	let t2;
 	let div0;
-	let raw_value = /*item*/ ctx[4].description + "";
+	let raw_value = /*item*/ ctx[1].description + "";
 	let t3;
-	let if_block = /*item*/ ctx[4].image.url && create_if_block$2(ctx);
+	let if_block = /*item*/ ctx[1].image.url && create_if_block$2(ctx);
 
 	return {
 		c() {
@@ -3684,7 +3668,7 @@ function create_each_block$1(ctx) {
 			append_hydration(div2, t3);
 		},
 		p(ctx, dirty) {
-			if (/*item*/ ctx[4].image.url) {
+			if (/*item*/ ctx[1].image.url) {
 				if (if_block) {
 					if_block.p(ctx, dirty);
 				} else {
@@ -3697,8 +3681,8 @@ function create_each_block$1(ctx) {
 				if_block = null;
 			}
 
-			if (dirty & /*items*/ 1 && t1_value !== (t1_value = /*item*/ ctx[4].title + "")) set_data(t1, t1_value);
-			if (dirty & /*items*/ 1 && raw_value !== (raw_value = /*item*/ ctx[4].description + "")) div0.innerHTML = raw_value;		},
+			if (dirty & /*items*/ 1 && t1_value !== (t1_value = /*item*/ ctx[1].title + "")) set_data(t1, t1_value);
+			if (dirty & /*items*/ 1 && raw_value !== (raw_value = /*item*/ ctx[1].description + "")) div0.innerHTML = raw_value;		},
 		d(detaching) {
 			if (detaching) detach(div2);
 			if (if_block) if_block.d();
@@ -3756,7 +3740,7 @@ function create_fragment$3(ctx) {
 			attr(section, "class", "section-container svelte-hirc2c");
 			attr(div1, "class", "component");
 			attr(div2, "class", "section");
-			attr(div2, "id", "section-c115959e-a8d9-4313-93f2-93b13b93edd8");
+			attr(div2, "id", "section-ffe3e387-2841-4cae-bb5d-d87d97013c10");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div2, anchor);
@@ -3803,32 +3787,20 @@ function create_fragment$3(ctx) {
 	};
 }
 
-function instance$3($$self, $$props, $$invalidate) {
-	let { logo } = $$props;
-	let { site_nav } = $$props;
-	let { footer_links } = $$props;
+function instance$2($$self, $$props, $$invalidate) {
 	let { items } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('logo' in $$props) $$invalidate(1, logo = $$props.logo);
-		if ('site_nav' in $$props) $$invalidate(2, site_nav = $$props.site_nav);
-		if ('footer_links' in $$props) $$invalidate(3, footer_links = $$props.footer_links);
 		if ('items' in $$props) $$invalidate(0, items = $$props.items);
 	};
 
-	return [items, logo, site_nav, footer_links];
+	return [items];
 }
 
 class Component$3 extends SvelteComponent {
 	constructor(options) {
 		super();
-
-		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
-			logo: 1,
-			site_nav: 2,
-			footer_links: 3,
-			items: 0
-		});
+		init(this, options, instance$2, create_fragment$3, safe_not_equal, { items: 0 });
 	}
 }
 
@@ -3886,12 +3858,12 @@ function create_fragment$4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading svelte-157t201");
+			attr(h2, "class", "heading svelte-j99miw");
 			attr(a, "href", a_href_value = /*link*/ ctx[1].url);
 			attr(a, "class", "button");
 			toggle_class(a, "is-inverted", /*variation*/ ctx[2] === 'light');
-			attr(div0, "class", "section-container svelte-157t201");
-			attr(section, "class", section_class_value = "" + (null_to_empty(/*variation*/ ctx[2]) + " svelte-157t201"));
+			attr(div0, "class", "section-container svelte-j99miw");
+			attr(section, "class", section_class_value = "" + (null_to_empty(/*variation*/ ctx[2]) + " svelte-j99miw"));
 			attr(div1, "class", "component");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-75e9681f-7607-4d14-88ef-74727f0c4050");
@@ -3919,7 +3891,7 @@ function create_fragment$4(ctx) {
 				toggle_class(a, "is-inverted", /*variation*/ ctx[2] === 'light');
 			}
 
-			if (dirty & /*variation*/ 4 && section_class_value !== (section_class_value = "" + (null_to_empty(/*variation*/ ctx[2]) + " svelte-157t201"))) {
+			if (dirty & /*variation*/ 4 && section_class_value !== (section_class_value = "" + (null_to_empty(/*variation*/ ctx[2]) + " svelte-j99miw"))) {
 				attr(section, "class", section_class_value);
 			}
 		},
@@ -3931,38 +3903,24 @@ function create_fragment$4(ctx) {
 	};
 }
 
-function instance$4($$self, $$props, $$invalidate) {
-	let { logo } = $$props;
-	let { site_nav } = $$props;
-	let { footer_links } = $$props;
+function instance$3($$self, $$props, $$invalidate) {
 	let { heading } = $$props;
 	let { link } = $$props;
 	let { variation } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('logo' in $$props) $$invalidate(3, logo = $$props.logo);
-		if ('site_nav' in $$props) $$invalidate(4, site_nav = $$props.site_nav);
-		if ('footer_links' in $$props) $$invalidate(5, footer_links = $$props.footer_links);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('link' in $$props) $$invalidate(1, link = $$props.link);
 		if ('variation' in $$props) $$invalidate(2, variation = $$props.variation);
 	};
 
-	return [heading, link, variation, logo, site_nav, footer_links];
+	return [heading, link, variation];
 }
 
 class Component$4 extends SvelteComponent {
 	constructor(options) {
 		super();
-
-		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
-			logo: 3,
-			site_nav: 4,
-			footer_links: 5,
-			heading: 0,
-			link: 1,
-			variation: 2
-		});
+		init(this, options, instance$3, create_fragment$4, safe_not_equal, { heading: 0, link: 1, variation: 2 });
 	}
 }
 
@@ -3970,14 +3928,14 @@ class Component$4 extends SvelteComponent {
 
 function get_each_context$2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[3] = list[i].link;
+	child_ctx[1] = list[i].link;
 	return child_ctx;
 }
 
-// (29:4) {#each footer_links as { link }}
+// (27:4) {#each footer_links as { link }}
 function create_each_block$2(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[3].label + "";
+	let t_value = /*link*/ ctx[1].label + "";
 	let t;
 	let a_href_value;
 
@@ -3996,16 +3954,16 @@ function create_each_block$2(ctx) {
 		},
 		h() {
 			attr(a, "class", "link");
-			attr(a, "href", a_href_value = /*link*/ ctx[3].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[1].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*footer_links*/ 1 && t_value !== (t_value = /*link*/ ctx[3].label + "")) set_data(t, t_value);
+			if (dirty & /*footer_links*/ 1 && t_value !== (t_value = /*link*/ ctx[1].label + "")) set_data(t, t_value);
 
-			if (dirty & /*footer_links*/ 1 && a_href_value !== (a_href_value = /*link*/ ctx[3].url)) {
+			if (dirty & /*footer_links*/ 1 && a_href_value !== (a_href_value = /*link*/ ctx[1].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -4140,47 +4098,29 @@ function create_fragment$5(ctx) {
 	};
 }
 
-function instance$5($$self, $$props, $$invalidate) {
-	let { logo } = $$props;
-	let { site_nav } = $$props;
+function instance$4($$self, $$props, $$invalidate) {
 	let { footer_links } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('logo' in $$props) $$invalidate(1, logo = $$props.logo);
-		if ('site_nav' in $$props) $$invalidate(2, site_nav = $$props.site_nav);
 		if ('footer_links' in $$props) $$invalidate(0, footer_links = $$props.footer_links);
 	};
 
-	return [footer_links, logo, site_nav];
+	return [footer_links];
 }
 
 class Component$5 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$5, create_fragment$5, safe_not_equal, { logo: 1, site_nav: 2, footer_links: 0 });
+		init(this, options, instance$4, create_fragment$5, safe_not_equal, { footer_links: 0 });
 	}
 }
 
 /* generated by Svelte v3.58.0 */
 
-function instance$6($$self, $$props, $$invalidate) {
-	let { logo } = $$props;
-	let { site_nav } = $$props;
-	let { footer_links } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('logo' in $$props) $$invalidate(0, logo = $$props.logo);
-		if ('site_nav' in $$props) $$invalidate(1, site_nav = $$props.site_nav);
-		if ('footer_links' in $$props) $$invalidate(2, footer_links = $$props.footer_links);
-	};
-
-	return [logo, site_nav, footer_links];
-}
-
 class Component$6 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$6, null, safe_not_equal, { logo: 0, site_nav: 1, footer_links: 2 });
+		init(this, options, null, null, safe_not_equal, {});
 	}
 }
 
@@ -4199,48 +4139,7 @@ function create_fragment$6(ctx) {
 	let t4;
 	let component_5;
 	let current;
-
-	component_0 = new Component({
-			props: {
-				logo: {
-					"image": {
-						"alt": "",
-						"src": "",
-						"url": "",
-						"size": null
-					},
-					"title": "Prolan & Co"
-				},
-				site_nav: [
-					{
-						"link": { "url": "/work", "label": "Work" }
-					},
-					{
-						"link": { "url": "/services", "label": "Services" }
-					},
-					{
-						"link": { "url": "/company", "label": "Company" }
-					},
-					{
-						"link": { "url": "/contact", "label": "Contact" }
-					}
-				],
-				footer_links: [
-					{
-						"link": { "url": "/work", "label": "Work" }
-					},
-					{
-						"link": { "url": "/services", "label": "Services" }
-					},
-					{
-						"link": { "url": "/company", "label": "Company" }
-					},
-					{
-						"link": { "url": "/contact", "label": "Contact Us" }
-					}
-				]
-			}
-		});
+	component_0 = new Component({});
 
 	component_1 = new Component$2({
 			props: {
@@ -4274,129 +4173,34 @@ function create_fragment$6(ctx) {
 					{
 						"link": { "url": "/contact", "label": "Contact" }
 					}
-				],
-				footer_links: [
-					{
-						"link": { "url": "/work", "label": "Work" }
-					},
-					{
-						"link": { "url": "/services", "label": "Services" }
-					},
-					{
-						"link": { "url": "/company", "label": "Company" }
-					},
-					{
-						"link": { "url": "/contact", "label": "Contact Us" }
-					}
 				]
 			}
 		});
 
 	component_2 = new Component$3({
 			props: {
-				logo: {
-					"image": {
-						"alt": "",
-						"src": "",
-						"url": "",
-						"size": null
-					},
-					"title": "Prolan & Co"
-				},
-				site_nav: [
-					{
-						"link": { "url": "/work", "label": "Work" }
-					},
-					{
-						"link": { "url": "/services", "label": "Services" }
-					},
-					{
-						"link": { "url": "/company", "label": "Company" }
-					},
-					{
-						"link": { "url": "/contact", "label": "Contact" }
-					}
-				],
-				footer_links: [
-					{
-						"link": { "url": "/work", "label": "Work" }
-					},
-					{
-						"link": { "url": "/services", "label": "Services" }
-					},
-					{
-						"link": { "url": "/company", "label": "Company" }
-					},
-					{
-						"link": { "url": "/contact", "label": "Contact Us" }
-					}
-				],
 				items: [
 					{
-						"link": { "url": "/", "label": "aliqua" },
+						"link": { "url": "/", "label": "eu" },
 						"image": {
 							"alt": "",
-							"src": "https://images.unsplash.com/photo-1668712841504-d392ff984d9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
-							"url": "https://images.unsplash.com/photo-1668712841504-d392ff984d9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
+							"src": "https://images.unsplash.com/photo-1686062095898-de61c74f2a2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80",
+							"url": "https://images.unsplash.com/photo-1686062095898-de61c74f2a2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80",
 							"size": null
 						},
-						"title": "Frosby Website",
-						"description": "This website is for a AI company to showcase their abstract digital art."
+						"title": "Abstract",
+						"description": "Abstract photography invites viewers to interpret and engage with the image in their own unique way."
 					},
 					{
-						"link": { "url": "/", "label": "amet" },
+						"link": { "url": "/", "label": "consequat" },
 						"image": {
 							"alt": "",
-							"src": "https://images.unsplash.com/photo-1669114656836-d5b9389a207e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
-							"url": "https://images.unsplash.com/photo-1669114656836-d5b9389a207e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
+							"src": "https://images.unsplash.com/photo-1686062096176-bfd55776c915?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80",
+							"url": "https://images.unsplash.com/photo-1686062096176-bfd55776c915?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80",
 							"size": null
 						},
-						"title": "Elit nostrud esse",
-						"description": "Consequat ullamco anim"
-					},
-					{
-						"link": { "url": "/", "label": "sunt" },
-						"image": {
-							"alt": "",
-							"src": "https://images.unsplash.com/photo-1668614831744-8f97f003a3e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80",
-							"url": "https://images.unsplash.com/photo-1668614831744-8f97f003a3e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80",
-							"size": null
-						},
-						"title": "In deserunt minim",
-						"description": "Aute dolor deserunt"
-					},
-					{
-						"link": { "url": "/", "label": "adipisicing" },
-						"image": {
-							"alt": "",
-							"src": "https://images.unsplash.com/photo-1668965521789-f1a13aa4a55c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
-							"url": "https://images.unsplash.com/photo-1668965521789-f1a13aa4a55c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
-							"size": null
-						},
-						"title": "Commodo proident magna",
-						"description": "Sint eu qui"
-					},
-					{
-						"link": { "url": "/", "label": "reprehenderit" },
-						"image": {
-							"alt": "",
-							"src": "https://images.unsplash.com/photo-1668749092857-dc9d93494586?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
-							"url": "https://images.unsplash.com/photo-1668749092857-dc9d93494586?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
-							"size": null
-						},
-						"title": "Ullamco ipsum tempor",
-						"description": "Ullamco est laborum"
-					},
-					{
-						"link": { "url": "/", "label": "id" },
-						"image": {
-							"alt": "",
-							"src": "https://images.unsplash.com/photo-1668569601219-4d991fccd5d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
-							"url": "https://images.unsplash.com/photo-1668569601219-4d991fccd5d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
-							"size": null
-						},
-						"title": "Ex dolor lorem",
-						"description": "Labore deserunt nostrud"
+						"title": "Landscape",
+						"description": " Landscape photography showcases the beauty and grandeur of natural environments, capturing expansive vistas and dramatic lighting."
 					}
 				]
 			}
@@ -4404,43 +4208,6 @@ function create_fragment$6(ctx) {
 
 	component_3 = new Component$4({
 			props: {
-				logo: {
-					"image": {
-						"alt": "",
-						"src": "",
-						"url": "",
-						"size": null
-					},
-					"title": "Prolan & Co"
-				},
-				site_nav: [
-					{
-						"link": { "url": "/work", "label": "Work" }
-					},
-					{
-						"link": { "url": "/services", "label": "Services" }
-					},
-					{
-						"link": { "url": "/company", "label": "Company" }
-					},
-					{
-						"link": { "url": "/contact", "label": "Contact" }
-					}
-				],
-				footer_links: [
-					{
-						"link": { "url": "/work", "label": "Work" }
-					},
-					{
-						"link": { "url": "/services", "label": "Services" }
-					},
-					{
-						"link": { "url": "/company", "label": "Company" }
-					},
-					{
-						"link": { "url": "/contact", "label": "Contact Us" }
-					}
-				],
 				heading: "Let's build something beautiful.",
 				link: { "url": "/", "label": "Contact us" },
 				variation: "dark"
@@ -4449,29 +4216,6 @@ function create_fragment$6(ctx) {
 
 	component_4 = new Component$5({
 			props: {
-				logo: {
-					"image": {
-						"alt": "",
-						"src": "",
-						"url": "",
-						"size": null
-					},
-					"title": "Prolan & Co"
-				},
-				site_nav: [
-					{
-						"link": { "url": "/work", "label": "Work" }
-					},
-					{
-						"link": { "url": "/services", "label": "Services" }
-					},
-					{
-						"link": { "url": "/company", "label": "Company" }
-					},
-					{
-						"link": { "url": "/contact", "label": "Contact" }
-					}
-				],
 				footer_links: [
 					{
 						"link": {
@@ -4497,47 +4241,7 @@ function create_fragment$6(ctx) {
 			}
 		});
 
-	component_5 = new Component$6({
-			props: {
-				logo: {
-					"image": {
-						"alt": "",
-						"src": "",
-						"url": "",
-						"size": null
-					},
-					"title": "Prolan & Co"
-				},
-				site_nav: [
-					{
-						"link": { "url": "/work", "label": "Work" }
-					},
-					{
-						"link": { "url": "/services", "label": "Services" }
-					},
-					{
-						"link": { "url": "/company", "label": "Company" }
-					},
-					{
-						"link": { "url": "/contact", "label": "Contact" }
-					}
-				],
-				footer_links: [
-					{
-						"link": { "url": "/work", "label": "Work" }
-					},
-					{
-						"link": { "url": "/services", "label": "Services" }
-					},
-					{
-						"link": { "url": "/company", "label": "Company" }
-					},
-					{
-						"link": { "url": "/contact", "label": "Contact Us" }
-					}
-				]
-			}
-		});
+	component_5 = new Component$6({});
 
 	return {
 		c() {
